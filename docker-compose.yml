@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: bookstore_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456 # Mật khẩu root
+    ports:
+      - "3306:3306" # Ánh xạ port 3306 của Docker ra port 3306 của máy tính bạn
+    volumes:
+      - mysql_data:/var/lib/mysql # Lưu trữ dữ liệu để không bị mất khi tắt container
+
+volumes:
+  mysql_data:
